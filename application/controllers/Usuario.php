@@ -33,4 +33,5 @@ class Usuario extends CI_Controller{
        $this->load->view('usuario_detail',$data);
         
     }
+    
 }
