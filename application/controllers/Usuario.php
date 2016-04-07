@@ -4,23 +4,27 @@ class Usuario extends CI_Controller{
     public function __construct() {
         parent::__construct(); // es lo primero que se ejecuta
         $this->load->model('Usuario_model'); //Con esto se llama al modelo
+        $this->load->model('Ciudad_model');
         $this->load->helper('url'); //Para manejar las rutas de las paginas
     }
     public function index(){
        $data["Usuario"]=  $this->Usuario_model->list_all();
+       
         $this->load->view('Usuario_index',$data);
     }
+   
+
     public function nuevo (){
-        $this->load->view('usuario_nuevo');
+        $data["ciudad"]=  $this->Ciudad_model->list_all();
+        $this->load->view('usuario_nuevo',$data);
         
         
     }
     public function save(){
         $nombre=  $this->input->post('nombre');
-        
         $apepat=  $this->input->post('apepat');
-        
-        $this->Usuario_model->save($nombre,$apepat);
+        $ciudad_id=  $this->input->post('ciudad_id');
+        $this->Usuario_model->save($nombre,$apepat,$ciudad_id);
         redirect('usuario');
     }
     public function delete ($usuario_id){
@@ -33,5 +37,6 @@ class Usuario extends CI_Controller{
        $this->load->view('usuario_detail',$data);
         
     }
+    
     
 }
