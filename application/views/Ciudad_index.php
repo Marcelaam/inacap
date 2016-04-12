@@ -9,14 +9,19 @@
    
     </thead>
     <tbody>
-             <?php foreach ($Ciudad as $data){ ?>
+             <?php foreach ($Ciudad as $ci){ ?>
         <tr>
-            <td> <?php echo $data->ciudad_id;?> </td>
-            <td> <?php echo $data->nombre; ?></td>
+            <td> <?php echo $ci->ciudad_id;?> </td>
+            <td> <?php echo $ci->nombre; ?></td>
             
-            <td><a href="<?php echo 'Ciudad/delete/'.$data->ciudad_id; ?>">Eliminar</a></td>
-            <td><a href="<?php echo 'Ciudad/detail/'.$data->ciudad_id; ?>">Ver Detalle</a></td>
+            <td><a href="<?php echo 'Ciudad/delete/'.$ci->ciudad_id; ?>">Eliminar</a></td>
+            <td><a href="<?php echo 'Ciudad/detail/'.$ci->ciudad_id; ?>">Ver Detalle</a></td>
+            
+            <td><a href=<?php echo (base_url() .'index.php/ciudad/edit/' . $ci->ciudad_id) ?>>Editar</td>
         </tr>
   <?php } ?>
     </tbody>
 </table>
+
+
+   baseurl(). /index.php/ciudad/edit/
