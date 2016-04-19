@@ -1,6 +1,7 @@
 <h1><u>Lista de Usuarios</u></h1><br> 
 
-
+<a href="<?PHP echo (base_url().'index.php/login/log_out') ?>">Cerrar sesion</a>
+<br>
 <a href="usuario/nuevo">Nuevo Usuario</a><br>
 
 <table border="1">

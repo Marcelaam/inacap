@@ -6,6 +6,12 @@ class Usuario extends CI_Controller{
         $this->load->model('Usuario_model'); //Con esto se llama al modelo
         $this->load->model('Ciudad_model');
         $this->load->helper('url'); //Para manejar las rutas de las paginas
+        $this->load->library('session');
+        if ($this->session->userdata('login')){
+            
+        }else{
+            redirect(base_url()."index.php/login");
+        }
     }
     public function index(){
        $data["Usuario"]=  $this->Usuario_model->list_all();
